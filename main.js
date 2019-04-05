@@ -4,6 +4,7 @@ $( document ).ready(function() {
   var $main = $('.bg--main');
   var $mid = $('.bg--mid');
   var $end = $('.bg--end');
+  var $nav = $('.navbar');
 
   var t1 = new TimelineLite();
   var t2 = new TimelineLite();
@@ -12,11 +13,18 @@ $( document ).ready(function() {
   
   
   t1
-  .set($main, {scale: 2})
-  .to($main, 1, {scale: 1})
-  .to($main, 1, {height: '20rem', width: "20rem", objectFit:'cover', alignSelf: 'center', borderRadius: '500px'})
-  .to($mid, 1, {display: 'block', x: '110%'})
-  .to($end, 1, {display: 'block', x: '-110%'}, '-=1')
+  .set($main, {scale: 3})
+  .set($mid, {autoAlpha:0})
+  .set($end, {autoAlpha:0})
+  .to($main, 2.5, {scale: 1, height: '20rem', width: "20rem", objectFit:'cover', alignSelf: 'center', borderRadius: '500px'})
+  .to($mid, 1, {autoAlpha: 1, x: '130%'})
+  .to($end, 1, {autoAlpha: 1, x: '-130%'}, '-=1')
+
+
+
+t2.set($nav, {y: '200%', autoAlpha: 0})
+  .to($nav, 2, {display:'flex', y:'0%', autoAlpha: 1})
+  .delay(2.5)
   
   
   
